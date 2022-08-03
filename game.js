@@ -7,13 +7,15 @@ function getComputerChoice() {
     } return 'scissors'
 }
 
-let computerSelection = getComputerChoice();
-let playerSelection = prompt("Enter rock paper or scissors")
+
 let computerScore = 0
 let playerScore = 0
 
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+    let playerSelection = prompt("Enter rock paper or scissors")
+
+    let computerSelection = getComputerChoice();
     if (playerSelection == computerSelection) {
         console.log("It's a tie")
         return 'tie'
@@ -51,3 +53,22 @@ function playerWins() {
     console.log(`player score :${playerScore} vs computer score : ${computerScore}`)
 }
 
+function winner() {
+    if (playerScore > computerScore) {
+        console.log(`Congrats you win! Score : ${playerScore} to ${computerScore}`)
+    } else if (computerScore > playerScore) {
+        console.log(`Ouch...computer wins!! Score: ${computerScore} to ${playerScore}`)
+    } else {
+        console.log("Something went wrong!")
+    }
+}
+
+
+function game() {
+    let userChoice = prompt("What score to play up to?...Enter a number")
+
+    while (playerScore < userChoice && computerScore < userChoice) {
+        playRound()
+    }
+    return winner()
+}
