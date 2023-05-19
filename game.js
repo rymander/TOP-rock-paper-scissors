@@ -1,74 +1,70 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
-    const choice = Math.floor(Math.random() * 3) + 1;
-    if (choice === 1) {
+    let computerChoice = Math.floor(Math.random() * 3) + 1;
+    if (computerChoice == 1) {
+        console.log('Computer chose "rock"')
         return 'rock'
-    } else if (choice === 2) {
+    } else if (computerChoice == 2) {
+        console.log('Computer chose "paper"')
         return 'paper'
-    } return 'scissors'
+    } else console.log('Computer chose "scissors"')
+    return 'scissors'
 }
-
-
-let computerScore = 0
-let playerScore = 0
-
 
 function playRound() {
-    let playerSelection = prompt("Enter rock paper or scissors")
-
-    let computerSelection = getComputerChoice();
-    if (playerSelection == computerSelection) {
-        console.log("It's a tie")
-        return 'tie'
-    } else if (playerSelection == 'rock' && computerSelection == 'paper') {
-        console.log("Paper beats rock, computer wins!")
-        return computerWins()
-    } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-        console.log("Scissors beats paper, computer wins!")
-        return computerWins()
-    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-        console.log("Rock beats scissors, computer wins!")
-        return computerWins()
-    } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        console.log("Rock beats scissors!, You win!")
-        return playerWins()
-    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-        console.log("Paper beats rock!, You win!")
-        return playerWins()
-    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-        console.log("Scissors beats paper!, You win!")
-        return playerWins()
+    let playerSelection = prompt('Enter "rock" "paper or "scissors')
+    while (playerSelection.toLowerCase() !== 'rock' && playerSelection.toLowerCase() !== 'paper' && playerSelection.toLowerCase() !== 'scissors') {
+        playerSelection = prompt('Please enter either "rock" "paper" or "scissors"')
+    }
+    let computerSelection = getComputerChoice()
+    if (computerSelection == playerSelection.toLowerCase()) {
+        console.log(`You chose ${playerSelection.toLowerCase()} and Computer chose the same thing, it's a draw`)
+        return 'draw'
+    } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors') {
+        console.log('You win!')
+        return playerScore++
+    } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock') {
+        console.log('You win!')
+        return playerScore++
+    } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper') {
+        console.log('You win!')
+        return playerScore++
+    } else if (computerSelection == 'rock' && playerSelection.toLowerCase() == 'scissors') {
+        console.log('Computer wins!')
+        return computerScore++
+    } else if (computerSelection == 'paper' && playerSelection.toLowerCase() == 'rock') {
+        console.log('Computer wins!')
+        return computerScore++
+    } else if (computerSelection == 'scissors' && playerSelection.toLowerCase() == 'paper') {
+        console.log('Computer wins!')
+        return computerScore++
     } else {
-        console.log("Something went wrong!")
+        console.log('Something went wrong!')
     }
 
 }
-
-function computerWins() {
-    computerScore += 1
-    console.log(`player score :${playerScore} vs computer score : ${computerScore}`)
-}
-
-function playerWins() {
-    playerScore += 1
-    console.log(`player score :${playerScore} vs computer score : ${computerScore}`)
-}
-
-function winner() {
-    if (playerScore > computerScore) {
-        console.log(`Congrats you win! Score : ${playerScore} to ${computerScore}`)
-    } else if (computerScore > playerScore) {
-        console.log(`Ouch...computer wins!! Score: ${computerScore} to ${playerScore}`)
-    } else {
-        console.log("Something went wrong!")
-    }
-}
-
 
 function game() {
-    let userChoice = prompt("What score to play up to?...Enter a number")
+    let rounds = parseInt(prompt('Enter how many rounds to play___?'))
 
-    while (playerScore < userChoice && computerScore < userChoice) {
+    for (let i = 0; i < rounds; i++) {
         playRound()
+        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
     }
-    return winner()
+    if (playerScore > computerScore) {
+        console.log('You win the game!')
+        playerScore = 0
+        computerScore = 0
+    } else if (computerScore > playerScore) {
+        console.log('WOMPWOMP Computer Wins the game!!')
+        playerScore = 0
+        computerScore = 0
+    } else {
+        console.log(`It's a draw, nobody won :(`)
+        playerScore = 0
+        computerScore = 0
+    }
+
 }
