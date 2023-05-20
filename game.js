@@ -1,6 +1,8 @@
 let playerScore = 0;
 let computerScore = 0;
 
+
+// ** gets random number between 1 and 3, and returns computerChoice
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
     if (computerChoice == 1) {
@@ -13,6 +15,7 @@ function getComputerChoice() {
     return 'scissors'
 }
 
+// ** gets player choice and checks it against computerSelection to see who wins and gets a point, or a draw
 function playRound() {
     let playerSelection = prompt('Enter "rock" "paper or "scissors')
     while (playerSelection.toLowerCase() !== 'rock' && playerSelection.toLowerCase() !== 'paper' && playerSelection.toLowerCase() !== 'scissors') {
@@ -46,6 +49,7 @@ function playRound() {
 
 }
 
+// **  runs a game with user choice for how many rounds, returns winner out of the rounds played
 function game() {
     let rounds = parseInt(prompt('Enter how many rounds to play___?'))
 
