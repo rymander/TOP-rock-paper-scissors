@@ -1,6 +1,19 @@
 let playerScore = 0;
 let computerScore = 0;
+const rock = document.querySelector('#rock')
+const scissors = document.querySelector('#scissors')
+const paper = document.querySelector('#paper')
+const score = document.querySelector('#score')
+const playGame = document.querySelector('#playGame')
 
+playGame.addEventListener('click', function (e) {
+    e.preventDefault()
+})
+
+rock.addEventListener('click', function (e) {
+    e.preventDefault()
+    alert('you clicked rock!')
+})
 
 // ** gets random number between 1 and 3, and returns computerChoice
 function getComputerChoice() {

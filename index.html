@@ -5,12 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Rock Paper Scissors (inside the console)</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock Paper Scissors now with DOM</title>
 </head>
 
 <body>
+    <form action="submit">
+        <h2>Choose winning score:</h2>
+        <input type="number" min="1" max="100" name="score" id="score">
+        <button type="submit" id="playGame">Play Game</button>
+    </form>
 
+    <div>
+        <button class="choice" id="rock">Rock <img src="images/rock.png" alt="rock hand sign" height="40px"
+                width="40px"> </button>
+
+        <button class="choice" id="scissors">Scissors <img src="images/scissors.png" alt="scissors hand sign"
+                height="40px" width="40px"></button>
+
+        <button class="choice" id="paper">Paper <img src="images/paper.png" alt="paper hand sign" height="40px"
+                width="40px"></button>
+    </div>
+
+    <div>
+        <h2>Score:</h2>
+    </div>
 
     <script src="game.js"></script>
 </body>

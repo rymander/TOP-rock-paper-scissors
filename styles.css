@@ -1,0 +1,36 @@
+@keyframes bounce {
+
+    0%,
+    20%,
+    60%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+
+    80% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+}
+
+div {
+    margin: 10px;
+}
+
+.choice {
+    margin: 10px;
+    padding: 10px;
+    display: flexbox;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+
+.choice:hover {
+    animation: bounce 0.5s;
+}
