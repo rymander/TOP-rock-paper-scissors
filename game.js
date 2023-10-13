@@ -3,16 +3,26 @@ let computerScore = 0;
 const rock = document.querySelector('#rock')
 const scissors = document.querySelector('#scissors')
 const paper = document.querySelector('#paper')
-const score = document.querySelector('#score')
+const scoreToWin = document.querySelector('#scoreToWin')
 const playGame = document.querySelector('#playGame')
 
 playGame.addEventListener('click', function (e) {
     e.preventDefault()
+    alert(scoreToWin.value)
+
 })
 
 rock.addEventListener('click', function (e) {
     e.preventDefault()
     alert('you clicked rock!')
+})
+scissors.addEventListener('click', function (e) {
+    e.preventDefault()
+    alert('you clicked scissors!')
+})
+paper.addEventListener('click', function (e) {
+    e.preventDefault()
+    alert('you clicked paper!')
 })
 
 // ** gets random number between 1 and 3, and returns computerChoice
