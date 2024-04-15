@@ -38,7 +38,7 @@ reset.addEventListener('click', function(e) {
     computerScore = 0
     scoreToWin.value = ''
     scoreToWinDisplay.innerText = 'Choose winning score:'
-    currentScore.innerText = `You: ${playerScore} Computer: ${computerScore}`
+    currentScore.innerText = `${playerScore} - ${computerScore}`
 })
 
 rock.addEventListener('click', function (e) {
@@ -120,10 +120,10 @@ function game(playerScore, computerScore) {
 function updateScore(playerScore, computerScore){
     let rounds = parseInt(scoreToWin.value)
     if (playerScore === rounds ||computerScore === rounds){
-        currentScore.innerText = `${playerScore} - ${computerScore}`
+        currentScore.innerText = `You: ${playerScore} - Computer: ${computerScore}`
         gameOver(playerScore, computerScore)
     } else {
-        currentScore.innerText = `${playerScore} - ${computerScore}`
+        currentScore.innerText = `You: ${playerScore} - Computer: ${computerScore}`
     }
 }
 
@@ -132,7 +132,7 @@ function updateScore(playerScore, computerScore){
     rock.style.visibility = 'hidden'
     paper.style.visibility = 'hidden'
     scissors.style.visibility = 'hidden'
-    alert(`Game Over score was ${playerScore} to ${computerScore}`)
+    alert(`Game Over! Score was ${playerScore} to ${computerScore}`)
 
  }
 
